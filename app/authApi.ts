@@ -16,7 +16,7 @@ interface ResponseData {
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://192.168.100.163:3000',
+    baseUrl: 'https://67f09aa32a80b06b88982f44.mockapi.io/',
   }),
   endpoints: (builder) => ({
     signup: builder.mutation<ResponseData, UserData>({

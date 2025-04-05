@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, StyleSheet, Alert } from 'react-native';
+import { View, TextInput, Button, Text, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 import { useSignupMutation } from '../authApi';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -27,11 +27,10 @@ const SignupScreen = () => {
         ...formData,
         age: parseInt(formData.age, 10),
       };
-
       const response = await signup(userData).unwrap();
       Alert.alert('Thành công', response.message);
-    } catch (error) {
-      Alert.alert('Lỗi', 'Đăng ký không thành công');
+    } catch (error: any) { // Thêm kiểu 'any' tạm thời
+      Alert.alert('Lỗi', error?.data?.message || 'Đăng ký không thành công');
     }
   };
 
@@ -43,7 +42,7 @@ const SignupScreen = () => {
           style={styles.input}
           value={formData.name}
           onChangeText={(text) => handleChange('name', text)}
-          placeholder="Nhập tên"
+          placeholder="Nhập tênn"
         />
 
         <Text style={styles.label}>User's Age*</Text>
@@ -87,11 +86,8 @@ const SignupScreen = () => {
           />
         </View>
 
-        <Button
-          title="Submit"
-          onPress={handleSubmit}
-          disabled={isLoading}
-        />
+        <Button title="Submit" onPress={handleSubmit} disabled={isLoading} />
+        {isLoading && <ActivityIndicator size="large" color="#0000ff" />}
       </View>
     </SafeAreaView>
   );
