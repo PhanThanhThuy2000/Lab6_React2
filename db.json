@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "age": 25,
+      "email": "john@example.com",
+      "password": "$2a$10$EXAMPLEHASH",
+      "gender": "male",
+      "createdAt": "2023-05-01T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "age": 30,
+      "email": "jane@example.com",
+      "password": "$2a$10$EXAMPLEHASH2",
+      "gender": "female",
+      "createdAt": "2023-05-02T11:30:00Z"
+    },
+    {
+      "id": "3ba2",
+      "name": "1",
+      "age": 19,
+      "email": "123@gmail.com",
+      "password": "1234567",
+      "gender": "male"
+    }
+  ]
+}
